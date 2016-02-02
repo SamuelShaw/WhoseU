@@ -11,7 +11,6 @@ import RealmSwift
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
-    
     @IBOutlet weak var tableView: UITableView!
     
     var persons: Results<Person>?
@@ -23,21 +22,40 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        let person = Person()
-        person.firstName = "Sam"
-        person.lastName = "Shaw"
-        person.age = 21
-        person.zipcode = "32806"
-        person.dob = "10/18/1994"
-        
+//        let person = Person()
+//        person.firstName = "Sam"
+//        person.lastName = "Shaw"
+//        person.age = 21
+//        person.zipcode = "32806"
+//        person.dob = "10/18/1994"
+//        
+//        do {
+//        let realm = try Realm()
+//        try realm.write{
+//            realm.add(person)
+//        }
+//            
+//            self.persons = realm.objects(Person)
+//        } catch {}
+    }
+    
+    override func viewWillAppear(animated: Bool)
+    {
+        updateUI()
+    }
+    
+    func updateUI()
+    {
         do {
-        let realm = try Realm()
-        try realm.write{
-            realm.add(person)
-        }
+            let realm = try Realm()
+            try realm.write{
+            }
             
             self.persons = realm.objects(Person)
         } catch {}
+        
+        self.tableView.reloadData()
+
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,10 +63,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell : PersonTableViewCell = tableView.dequeueReusableCellWithIdentifier("PersonCell") as! PersonTableViewCell
         let person = self.persons![indexPath.row]
-        cell.textLabel!.text = "Check out \(person.firstName)'s info!"
+        cell.infoLabel1.text = "\(person.firstName) \(person.lastName) is \(person.age) years old. Their date of birth is \(person.dob) and current zipcode is \(person.zipcode)!"
         return cell
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete
+        {
+            let person = self.persons![indexPath.row]
+            do {
+                let realm = try Realm()
+                try realm.write{
+                    realm.delete(person)
+                }
+                
+            } catch {}
+            updateUI()
+        }
     }
 
 

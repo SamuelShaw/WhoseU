@@ -13,6 +13,8 @@
 		00A29B671C612864007C8FE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00A29B661C612864007C8FE1 /* Assets.xcassets */; };
 		00A29B6A1C612864007C8FE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A29B681C612864007C8FE1 /* LaunchScreen.storyboard */; };
 		00A29B721C612DE9007C8FE1 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A29B711C612DE9007C8FE1 /* Person.swift */; };
+		00A29B761C6143E8007C8FE1 /* AddPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A29B751C6143E8007C8FE1 /* AddPersonViewController.swift */; };
+		00A29B7A1C614C6D007C8FE1 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A29B791C614C6D007C8FE1 /* PersonTableViewCell.swift */; };
 		CA430C46EDC6ADBC1A078F1D /* Pods_WhoseU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A48D3A30123AB9811F7EBC76 /* Pods_WhoseU.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,8 @@
 		00A29B691C612864007C8FE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00A29B6B1C612864007C8FE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00A29B711C612DE9007C8FE1 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		00A29B751C6143E8007C8FE1 /* AddPersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPersonViewController.swift; sourceTree = "<group>"; };
+		00A29B791C614C6D007C8FE1 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		8A726AD1DAB8B1F205ACE0A7 /* Pods-WhoseU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoseU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhoseU/Pods-WhoseU.debug.xcconfig"; sourceTree = "<group>"; };
 		A48D3A30123AB9811F7EBC76 /* Pods_WhoseU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhoseU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4023549282C36BCCCF0FB2C /* Pods-WhoseU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoseU.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhoseU/Pods-WhoseU.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,15 +67,25 @@
 		00A29B5E1C612864007C8FE1 /* WhoseU */ = {
 			isa = PBXGroup;
 			children = (
-				00A29B5F1C612864007C8FE1 /* AppDelegate.swift */,
-				00A29B611C612864007C8FE1 /* ViewController.swift */,
-				00A29B711C612DE9007C8FE1 /* Person.swift */,
-				00A29B631C612864007C8FE1 /* Main.storyboard */,
+				00A29B7B1C6155CF007C8FE1 /* Files */,
 				00A29B661C612864007C8FE1 /* Assets.xcassets */,
+				00A29B631C612864007C8FE1 /* Main.storyboard */,
 				00A29B681C612864007C8FE1 /* LaunchScreen.storyboard */,
 				00A29B6B1C612864007C8FE1 /* Info.plist */,
 			);
 			path = WhoseU;
+			sourceTree = "<group>";
+		};
+		00A29B7B1C6155CF007C8FE1 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				00A29B5F1C612864007C8FE1 /* AppDelegate.swift */,
+				00A29B611C612864007C8FE1 /* ViewController.swift */,
+				00A29B711C612DE9007C8FE1 /* Person.swift */,
+				00A29B751C6143E8007C8FE1 /* AddPersonViewController.swift */,
+				00A29B791C614C6D007C8FE1 /* PersonTableViewCell.swift */,
+			);
+			name = Files;
 			sourceTree = "<group>";
 		};
 		25FF611E0C3CFAA7F0B0942A /* Pods */ = {
@@ -214,9 +228,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00A29B7A1C614C6D007C8FE1 /* PersonTableViewCell.swift in Sources */,
 				00A29B721C612DE9007C8FE1 /* Person.swift in Sources */,
 				00A29B621C612864007C8FE1 /* ViewController.swift in Sources */,
 				00A29B601C612864007C8FE1 /* AppDelegate.swift in Sources */,
+				00A29B761C6143E8007C8FE1 /* AddPersonViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
