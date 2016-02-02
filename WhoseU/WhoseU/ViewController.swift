@@ -9,12 +9,19 @@
 import UIKit
 import RealmSwift
 
-class ViewController: UIViewController
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var persons: Results<Person>?
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
         let person = Person()
         person.firstName = "Sam"
@@ -29,9 +36,19 @@ class ViewController: UIViewController
             realm.add(person)
         }
             
-            let persons = realm.objects(Person)
-            print(persons)
+            self.persons = realm.objects(Person)
         } catch {}
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (persons?.count)!
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        let person = self.persons![indexPath.row]
+        cell.textLabel!.text = "Check out \(person.firstName)'s info!"
+        return cell
     }
 
 
