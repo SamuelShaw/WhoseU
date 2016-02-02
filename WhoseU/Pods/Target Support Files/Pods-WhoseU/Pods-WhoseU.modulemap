@@ -1,0 +1,6 @@
+framework module Pods_WhoseU {
+  umbrella header "Pods-WhoseU-umbrella.h"
+
+  export *
+  module * { export * }
+}
